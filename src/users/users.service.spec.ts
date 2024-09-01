@@ -39,6 +39,7 @@ describe('UsersService', () => {
     } as unknown as Repository<User>;
 
     // Ensure the mocked `getRepository` returns the `userRepository`
+    await databaseService.initialize();
     jest.spyOn(databaseService, 'getRepository').mockReturnValue(userRepository);
   });
 

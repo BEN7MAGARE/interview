@@ -78,9 +78,7 @@ describe('UsersController', () => {
 
   describe('remove', () => {
     it('should remove a user', async () => {
-      // Mock the remove method to return the expected value
       jest.spyOn(service, 'remove').mockResolvedValue({ deleted: true });
-
       await expect(controller.remove('1')).resolves.toEqual({ deleted: true });
       expect(service.remove).toHaveBeenCalledWith(1);
     });

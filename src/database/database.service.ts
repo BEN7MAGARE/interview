@@ -41,6 +41,13 @@ export class DatabaseService {
         return this.dataSource.getRepository(entity);
     }
 
+    async getQueryRunner() {
+        if (!this.dataSource.isInitialized) {
+            throw new Error('Data Source is not initialized.');
+        }
+        return this.dataSource.createQueryRunner();
+    }
+
     async closeConnection() {
         if (this.dataSource.isInitialized) {
             await this.dataSource.destroy();

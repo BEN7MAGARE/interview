@@ -32,4 +32,9 @@ export class UsersController {
   async remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
   }
+
+  @Get('/summary/:id')
+  async summary(@Param('id') id: string) {
+    return this.usersService.summary(+id);
+  }
 }
