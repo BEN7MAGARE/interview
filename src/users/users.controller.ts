@@ -10,6 +10,10 @@ export class UsersController {
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto) {
+    console.log(createUserDto.email);
+    console.log(createUserDto.name);
+    console.log(createUserDto.phone);
+    console.log(createUserDto.password);
     return this.usersService.create(createUserDto);
   }
 

@@ -18,6 +18,11 @@ export class UsersService {
   async create(createUserDto: CreateUserDto) {
     const userRepository = this.databaseService.getRepository(User);
     const existingUserEmail = await userRepository.findOneBy({ email: createUserDto.email });
+    console.log(createUserDto.email);
+    console.log(createUserDto.name);
+    console.log(createUserDto.phone);
+    console.log(createUserDto.password);
+
     if (existingUserEmail !== null && existingUserEmail.id !== undefined) {
       throw new ConflictException(existingUserEmail);
     }
